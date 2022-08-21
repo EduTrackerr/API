@@ -34,7 +34,7 @@ async def predict(scores: str):
         while len(np_scores) < 10:
             np_scores = np.append(np_scores, avg)
         np_scores = np_scores[:10]
-        with open('lr_best_v1.sav', 'rb') as f:
+        with open('models/lr_best_v1.sav', 'rb') as f:
             lr = pickle.load(f)
         df_pred = pd.DataFrame(np_scores.reshape(1, -1), 
                     columns=['Test1', 'Test2', 'Test3', 'Test4', 'Test5', 'Test6', 'Test7', 'Test8', 'Test9', 'Test10'])
