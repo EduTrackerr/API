@@ -29,10 +29,6 @@ app.add_middleware(
 async def predict(scores: str):
     try: 
         arr_scores = scores.split(",")
-        if scores == '91,89,84,97,88,86':
-            return {'prediction' : 90, 'average' : int(mean(np.array(arr_scores).astype(int)))}
-        elif scores == '78,83,76,69,80,82,80,79':
-            return {'prediction' : 76, 'average' : int(mean(np.array(arr_scores).astype(int)))}
         np_scores = np.array(arr_scores).astype(int)
         avg = mean(np_scores)
         while len(np_scores) < 10:
